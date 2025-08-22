@@ -93,7 +93,9 @@ def _parse_significant_earthquakes(obj: dict) -> pd.DataFrame:
         
     df = pd.DataFrame(rows)
     if not df.empty and "Time" in df.columns:
-        df["Time"] = pd.to_datetime(df["Time"], errors="coerce", utc=True).dt.tz_convert(TAIPEI_TZ)
+        # df["Time"] = pd.to_datetime(df["Time"], errors="coerce", utc=True).dt.tz_convert(TAIPEI_TZ)
+        # 假設 TAIPEI_TZ 已在檔案開頭定義
+        df["Time"] = pd.to_datetime(df["Time"], errors="coerce").dt.tz_localize(TAIPEI_TZ)
     return df
 
 def fetch_significant_earthquakes(days: int = 7, limit: int = 5) -> str:
