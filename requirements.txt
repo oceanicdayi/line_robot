@@ -1,0 +1,19 @@
+# requirements.txt (Final Version with library version lock)
+
+# 網頁伺服器
+Flask
+gunicorn
+
+# LINE Bot SDK
+line-bot-sdk>=3.0.0,<4
+
+# API 請求與資料處理
+requests
+pandas
+gradio_client
+
+# Google Gemini AI - 指定最低版本號 0.5.0 以確保功能完整
+google-generativeai>=0.5.0
+
+# 繪圖函式庫
+matplotlib
